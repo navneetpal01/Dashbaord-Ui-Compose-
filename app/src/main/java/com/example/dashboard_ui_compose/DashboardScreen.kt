@@ -13,10 +13,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -38,7 +40,7 @@ fun DashboardScreen() {
     ) {
         ConstraintLayout {
             //To create multiple variables from a single value
-            val (topImg, profile) = createRefs()
+            val (topImg, profile,button) = createRefs()
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -86,10 +88,41 @@ fun DashboardScreen() {
                         .width(100.dp)
                         .height(100.dp)
                         .clickable {
-                            
+
                         }
                 )
             }
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 24.dp, start = 24.dp, end = 24.dp)
+                    .shadow(3.dp, shape = RoundedCornerShape(20.dp))
+                    .background(
+                        color = Color.White,
+                        shape = RoundedCornerShape(20.dp)
+                    )
+                    .constrainAs(profile) {
+                        top.linkTo(topImg.bottom)
+                        bottom.linkTo(topImg.bottom)
+                        start.linkTo(parent.start)
+                        end.linkTo(parent.end)
+                    }
+            ){
+
+                Column(
+                    modifier = Modifier
+                        .padding(top = 12.dp, bottom = 12.dp, end = 12.dp)
+                        .height(90.dp)
+                ){
+
+                }
+
+            }
+
+
         }
     }
 }
