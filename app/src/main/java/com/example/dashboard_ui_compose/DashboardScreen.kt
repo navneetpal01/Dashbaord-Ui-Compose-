@@ -14,13 +14,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -37,6 +37,8 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.dashboard_ui_compose.ui.theme.DashboardUiComposeTheme
 
 
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DashboardScreen() {
     Column(
@@ -214,11 +216,30 @@ fun DashboardScreen() {
                 )
             },
             trailingIcon = {
-                Image(painter = painterResource(id = R.drawable.search_icon), contentDescription = null)
-            }
+                Image(
+                    painter = painterResource(id = R.drawable.search_icon),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(43.dp)
+                        .padding(end = 6.dp)
+                )
+            },
+            shape = RoundedCornerShape(50.dp),
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                containerColor = Color.White,
+                focusedBorderColor = Color.Transparent,
+                unfocusedBorderColor = Color.Transparent,
+                focusedTextColor = Color(android.graphics.Color.parseColor("#5e5e5e")),
+                unfocusedTextColor = Color(android.graphics.Color.parseColor("#5e5e5e")),
+                focusedLabelColor = Color(android.graphics.Color.parseColor("#5e5e5e")),
+                unfocusedLabelColor = Color(android.graphics.Color.parseColor("#5e5e5e"))
+            ),
+            modifier = Modifier
+                .fillMaxWidth()
         )
     }
 }
+
 
 
 @Preview
