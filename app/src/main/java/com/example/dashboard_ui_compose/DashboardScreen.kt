@@ -245,7 +245,7 @@ fun DashboardScreen() {
         ConstraintLayout(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 24.dp, end = 24.dp, start = 24.dp)
+                .padding(top = 18.dp, end = 24.dp, start = 24.dp)
                 .shadow(3.dp, shape = RoundedCornerShape(25.dp))
                 .height(145.dp)
                 .background(
@@ -303,7 +303,7 @@ fun DashboardScreen() {
             horizontalArrangement = Arrangement.Center,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 16.dp, end = 16.dp, top = 24.dp)
+                .padding(start = 16.dp, end = 16.dp)
         ){
 
             Column(
@@ -425,7 +425,7 @@ fun DashboardScreen() {
             horizontalArrangement = Arrangement.Center,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 16.dp, end = 16.dp, top = 24.dp)
+                .padding(start = 16.dp, end = 16.dp)
         ){
 
             Column(
